@@ -6,24 +6,24 @@
   <title>MiaoWei_website | Echoting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="写完整站的一点心得体会http://echoting.github.io/MiaoWei-website/
-滑动门的使用
-关于样式重置问题
+滑动门的使用  
+关于样式重置问题  
 布局的相关问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MiaoWei_website">
 <meta property="og:url" content="http://yoursite.com/2016/05/25/miaowei_website/index.html">
 <meta property="og:site_name" content="Echoting">
 <meta property="og:description" content="写完整站的一点心得体会http://echoting.github.io/MiaoWei-website/
-滑动门的使用
-关于样式重置问题
+滑动门的使用  
+关于样式重置问题  
 布局的相关问题">
 <meta property="og:image" content="http://pic2.ooopic.com/12/81/16/06b2OOOPICd6.jpg">
-<meta property="og:updated_time" content="2016-05-25T13:48:00.169Z">
+<meta property="og:updated_time" content="2016-05-25T13:52:17.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MiaoWei_website">
 <meta name="twitter:description" content="写完整站的一点心得体会http://echoting.github.io/MiaoWei-website/
-滑动门的使用
-关于样式重置问题
+滑动门的使用  
+关于样式重置问题  
 布局的相关问题">
 <meta name="twitter:image" content="http://pic2.ooopic.com/12/81/16/06b2OOOPICd6.jpg">
   
@@ -67,9 +67,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -101,12 +101,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="写完整站的一点心得体会"><a href="#写完整站的一点心得体会" class="headerlink" title="写完整站的一点心得体会"></a>写完整站的一点心得体会</h1><h2 id="http-echoting-github-io-MiaoWei-website"><a href="#http-echoting-github-io-MiaoWei-website" class="headerlink" title="http://echoting.github.io/MiaoWei-website/"></a><a href="http://echoting.github.io/MiaoWei-website/" target="_blank" rel="external">http://echoting.github.io/MiaoWei-website/</a></h2><ul>
-<li>滑动门的使用</li>
-<li>关于样式重置问题</li>
-<li><p>布局的相关问题 </p>
+<li>滑动门的使用  </li>
+<li>关于样式重置问题  </li>
+<li><p>布局的相关问题</p>
 <a id="more"></a>
 <h3 id="滑动门的使用"><a href="#滑动门的使用" class="headerlink" title="滑动门的使用"></a>滑动门的使用</h3><p>滑动门并不是一项全新的技术，它是利用背景图像的可层叠性，并允许他们在彼此之上进行滑动，以创造一些特殊的效果。<br>滑动门的关键在于三层嵌套以及背景图片的平铺。  </p>
-<h6 id="关键代码-示例"><a href="#关键代码-示例" class="headerlink" title="关键代码 示例"></a>关键代码 示例</h6><pre><code>&lt;div class=&quot;btn&quot;&gt;
+<h5 id="关键代码-示例"><a href="#关键代码-示例" class="headerlink" title="关键代码 示例"></a>关键代码 示例</h5><pre><code>&lt;div class=&quot;btn&quot;&gt;
     &lt;div class=&quot;btnL&quot;&gt;
         &lt;div class=&quot;btnR&quot;&gt;妙味课堂&lt;/div&gt;
     &lt;/div&gt;
@@ -117,7 +117,7 @@
 .btnR{height:31px; background:url(img/btnR.png) no-repeat right 0;}
 </code></pre></li>
 </ul>
-<h6 id="样式重置问题"><a href="#样式重置问题" class="headerlink" title="样式重置问题"></a>样式重置问题</h6><ol>
+<h3 id="样式重置问题"><a href="#样式重置问题" class="headerlink" title="样式重置问题"></a>样式重置问题</h3><ol>
 <li>样式重置初学者喜欢用通配符（*），但是这种方法的缺点是代码运行的效率低，做了很多的无用功。</li>
 <li>所以，样式重置的基本准则是： 用到什么标签，就重置什么标签的样式。</li>
 <li><p>但是为了节省时间，总结出了一些常用的标签的样式重置<br>关键代码如下</p>
@@ -133,7 +133,7 @@ textarea{ resize:none;overflow:auto;}
 </code></pre></li>
 </ol>
 <h3 id="有关于布局"><a href="#有关于布局" class="headerlink" title="有关于布局"></a>有关于布局</h3><ol>
-<li>命名问题： 应该根据每块的功能，位置或者主题来命名。<br>命名方法有php法：每个单词中间以“_”隔开  main_left_box<br>驼峰命名法：从第二个单词开始每个单词的首字母大写  #mainLeftBox{}<br>常见的命名有：<br>页头：header  如：#header{属性:属性值;}或.header{属性:属性值;},也许你需要了解class与id区别及用法<br>登录条：loginBar         标志：logo                侧栏：sideBar<br>广告：banner              导航：nav                 子导航：subNav<br>菜单：menu               子菜单：subMenu      搜索：search<br>滚动：scroll               页面主体：main         内容：content<br>标签页：tab                 文章列表：list            提示信息：msg<br>小技巧：tips                栏目标题：title            加入：joinus<br>指南：guild                服务：service              热点：hot<br>新闻：news                 下载：download         注册：regsiter<br>状态：status                按钮：btn                    投票：vote<br>合作伙伴：partner       友情链接：friendLink   页脚：footer  </li>
+<li><strong>命名问题</strong>： 应该根据每块的功能，位置或者主题来命名。<br>命名方法有php法：每个单词中间以“_”隔开  main_left_box<br>驼峰命名法：从第二个单词开始每个单词的首字母大写  #mainLeftBox{}<br><strong>常见的命名有</strong>：<br>页头：header  如：#header{属性:属性值;}或.header{属性:属性值;},也许你需要了解class与id区别及用法<br>登录条：loginBar         标志：logo                侧栏：sideBar<br>广告：banner              导航：nav                 子导航：subNav<br>菜单：menu               子菜单：subMenu      搜索：search<br>滚动：scroll               页面主体：main         内容：content<br>标签页：tab                 文章列表：list            提示信息：msg<br>小技巧：tips                栏目标题：title            加入：joinus<br>指南：guild                服务：service              热点：hot<br>新闻：news                 下载：download         注册：regsiter<br>状态：status                按钮：btn                    投票：vote<br>合作伙伴：partner       友情链接：friendLink   页脚：footer  </li>
 <li><p>图片的加载<br>CSS Sprites 是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去。<br>其实也不是必须只用一张大图，那样的话可能会导致开发的速度变慢，但是可以将一些小的图标，和基本不会改变<br>的图包含到一张大图中去。</p>
 <h3 id="写在后面的话"><a href="#写在后面的话" class="headerlink" title="写在后面的话"></a>写在后面的话</h3><p>css布局毕竟是一件很大的工程，以后还需要多做一些整站的页面来练习，总结出更多的方法，加油吧!前端的路还是很长的。<br>hexo 提交博客（我总是忘记）</p>
 <pre><code>hexo clean
@@ -145,7 +145,7 @@ hexo d -g
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/25/miaowei_website/" data-id="ciomxetmi00034gbrk00lt2x8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/05/25/miaowei_website/" data-id="ciomxk5aa00019sbrap9s05fk" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -156,7 +156,7 @@ hexo d -g
   
   
     <a href="/2016/04/20/myfocus/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">myfocus</div>
     </a>
   
@@ -189,7 +189,7 @@ hexo d -g
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -222,7 +222,7 @@ hexo d -g
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
