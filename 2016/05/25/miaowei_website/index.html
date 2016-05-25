@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MiaoWei_website | Echoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#写完整站的一点心得体会  
+##http://echoting.github.io/MiaoWei-website/
+
+滑动门的使用
+关于样式重置问题
+布局的相关问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MiaoWei_website">
+<meta property="og:url" content="http://yoursite.com/2016/05/25/miaowei_website/index.html">
+<meta property="og:site_name" content="Echoting">
+<meta property="og:description" content="#写完整站的一点心得体会  
+##http://echoting.github.io/MiaoWei-website/
+
+滑动门的使用
+关于样式重置问题
+布局的相关问题">
+<meta property="og:image" content="http://pic2.ooopic.com/12/81/16/06b2OOOPICd6.jpg">
+<meta property="og:updated_time" content="2016-05-25T13:33:40.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MiaoWei_website">
+<meta name="twitter:description" content="#写完整站的一点心得体会  
+##http://echoting.github.io/MiaoWei-website/
+
+滑动门的使用
+关于样式重置问题
+布局的相关问题">
+<meta name="twitter:image" content="http://pic2.ooopic.com/12/81/16/06b2OOOPICd6.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Echoting" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Echoting</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习路上的脚印</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-miaowei_website" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/25/miaowei_website/" class="article-date">
+  <time datetime="2016-05-25T12:58:20.000Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MiaoWei_website
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#写完整站的一点心得体会  </p>
+<p>##<a href="http://echoting.github.io/MiaoWei-website/" target="_blank" rel="external">http://echoting.github.io/MiaoWei-website/</a></p>
+<ul>
+<li>滑动门的使用</li>
+<li>关于样式重置问题</li>
+<li><p>布局的相关问题 </p>
+<a id="more"></a>
+<p>###滑动门的使用<br>滑动门并不是一项全新的技术，它是利用背景图像的可层叠性，并允许他们在彼此之上进行滑动，以创造一些特殊的效果。<br>滑动门的关键在于三层嵌套以及背景图片的平铺。<br>######关键代码 示例</p>
+<pre><code>&lt;div class=&quot;btn&quot;&gt;
+    &lt;div class=&quot;btnL&quot;&gt;
+        &lt;div class=&quot;btnR&quot;&gt;妙味课堂&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+.btn{width:100px;background:url(img/btn.png) repeat-x;}
+.btnL{background:url(img/btnL.png) no-repeat;}
+.btnR{height:31px; background:url(img/btnR.png) no-repeat right 0;}
+</code></pre></li>
+</ul>
+<p>######样式重置问题</p>
+<ol>
+<li>样式重置初学者喜欢用通配符（*），但是这种方法的缺点是代码运行的效率低，做了很多的无用功。</li>
+<li>所以，样式重置的基本准则是： 用到什么标签，就重置什么标签的样式。</li>
+<li><p>但是为了节省时间，总结出了一些常用的标签的样式重置<br>关键代码如下</p>
+<pre><code>/* reset */
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select{margin:0;padding:0;}
+em{font-style:normal}
+li{list-style:none}
+a{text-decoration:none;}
+img{border:none; vertical-align:top;}
+table{border-collapse:collapse;}
+textarea{ resize:none;overflow:auto;}
+/* end reset */
+</code></pre></li>
+</ol>
+<p>###有关于布局</p>
+<ol>
+<li>命名问题： 应该根据每块的功能，位置或者主题来命名。<br>命名方法有php法：每个单词中间以“_”隔开  main_left_box<br>驼峰命名法：从第二个单词开始每个单词的首字母大写  #mainLeftBox{}<br>常见的命名有：<br>页头：header  如：#header{属性:属性值;}或.header{属性:属性值;},也许你需要了解class与id区别及用法<br>登录条：loginBar         标志：logo                侧栏：sideBar<br>广告：banner              导航：nav                 子导航：subNav<br>菜单：menu               子菜单：subMenu      搜索：search<br>滚动：scroll               页面主体：main         内容：content<br>标签页：tab                 文章列表：list            提示信息：msg<br>小技巧：tips                栏目标题：title            加入：joinus<br>指南：guild                服务：service              热点：hot<br>新闻：news                 下载：download         注册：regsiter<br>状态：status                按钮：btn                    投票：vote<br>合作伙伴：partner       友情链接：friendLink   页脚：footer  </li>
+<li>图片的加载<br>CSS Sprites 是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去。<br>其实也不是必须只用一张大图，那样的话可能会导致开发的速度变慢，但是可以将一些小的图标，和基本不会改变<br>的图包含到一张大图中去。<br>###写在后面的话<br>css布局毕竟是一件很大的工程，以后还需要多做一些整站的页面来练习，总结出更多的方法，加油吧!前端的路还是很长的。<br>##照例来一张美图让自己的心情美美哒<br><img src="http://pic2.ooopic.com/12/81/16/06b2OOOPICd6.jpg" alt=""></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/25/miaowei_website/" data-id="ciomwzo770000icbruxz1q084" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/20/myfocus/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">myfocus</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/25/miaowei_website/">MiaoWei_website</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/20/myfocus/">myfocus</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/15/New Document/">firstBlog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
