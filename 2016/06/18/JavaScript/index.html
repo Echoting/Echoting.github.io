@@ -17,7 +17,7 @@ JavaScript的基本的数据类型
 自定义属性，索引值的使用
 JavaScript的基本的数据类型
 作用域问题">
-<meta property="og:updated_time" content="2016-06-18T07:49:27.655Z">
+<meta property="og:updated_time" content="2016-06-18T08:12:13.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 初级的一点点总结">
 <meta name="twitter:description" content="最近有关于JavaScript看后的一点心得体会
@@ -103,8 +103,7 @@ JavaScript的基本的数据类型
 <li>JavaScript的基本的数据类型</li>
 <li><p>作用域问题</p>
 <a id="more"></a>
-<h3 id="索引值的使用"><a href="#索引值的使用" class="headerlink" title="索引值的使用"></a>索引值的使用</h3><p>1）<strong>自定义属性：JS 可以为任何HTML元素添加任意个自定义属性</strong> </p>
-<p>  aBtn[0].abc = 123;            // 自定义属性<br>注：不能对背景进行判断，颜色不能判断，and相对路径不能判断<br>2）<strong>自定义属性：索引值得使用</strong><br>想建立“匹配”“对应”关系，就用索引值<br>  var arr = [ ‘莫涛’, ‘张森’, ‘杜鹏’ ];<br>  for( var i=0; i&lt;aBtn.length; i++ ){</p>
+<h3 id="索引值的使用"><a href="#索引值的使用" class="headerlink" title="索引值的使用"></a>索引值的使用</h3><p>1）<strong>自定义属性：JS 可以为任何HTML元素添加任意个自定义属性</strong><br>  aBtn[0].abc = 123;            // 自定义属性<br>注：不能对背景进行判断，颜色不能判断，and相对路径不能判断<br>2）<strong>自定义属性：索引值得使用</strong><br>想建立“匹配”“对应”关系，就用索引值<br>  var arr = [ ‘莫涛’, ‘张森’, ‘杜鹏’ ];<br>  for( var i=0; i&lt;aBtn.length; i++ ){</p>
 <pre><code>aBtn[i].index = i;            // 自定义属性（索引值）    
 aBtn[i].onclick = function (){
     // alert( arr[ this.index ] );
@@ -114,8 +113,7 @@ aBtn[i].onclick = function (){
 </code></pre><p>  }</p>
 <h3 id="基本的数据类型及typeof"><a href="#基本的数据类型及typeof" class="headerlink" title="基本的数据类型及typeof"></a>基本的数据类型及typeof</h3><p>1）<strong>基本的数据类型</strong><br>ECMAScript：标准、核心<br>HTML 标签类型：block、inline、inline-block、table……<br>JS中的数据类型：数字、字符串、布尔、函数、对象(obj、[]、{}、null)、未定义<br>2）<strong>typeof</strong> 判断数据类型（string number object function undefined）<br>3）<strong>isNaN</strong>： Is not a number 是不是不是一个数字（不是数字）<br>isNaN(a):就是对a进行Number(a)操作，如果返回值为NaN，则返回1，否则为0.  </p>
 <h3 id="作用域的问题"><a href="#作用域的问题" class="headerlink" title="作用域的问题"></a>作用域的问题</h3><p>变量分为局部变量和全局变量，分别有不同的作用域范围。  </p>
-<h4 id="JS解析器："><a href="#JS解析器：" class="headerlink" title="JS解析器："></a>JS解析器：</h4><p><strong>1）找一些东西：var function 参数  【预解析的过程】</strong><br> a = …<br> 所有的变量，在正式运行代码之前，都提前赋了一个值：未定义<br> fn1 = function fn1(){ alert(2); }<br> 所有的函数，在正式运行代码之前，都是整个函数块<br>注：遇到重命名的，只留一个，如果是变量和函数重命名了，就只留下函数。<br>注意：火狐不能对如下函数进行预解析，会报错，尽量避免这种写法  </p>
-<p>  alert( fn1 );        // FF 不能对下面的函数进行预解析<br>  if( true ){</p>
+<h4 id="JS解析器："><a href="#JS解析器：" class="headerlink" title="JS解析器："></a>JS解析器：</h4><p><strong>1）找一些东西：var function 参数  【预解析的过程】</strong><br> a = …<br> 所有的变量，在正式运行代码之前，都提前赋了一个值：未定义<br> fn1 = function fn1(){ alert(2); }<br> 所有的函数，在正式运行代码之前，都是整个函数块<br>注：遇到重命名的，只留一个，如果是变量和函数重命名了，就只留下函数。<br>注意：火狐不能对如下函数进行预解析，会报错，尽量避免这种写法<br>  alert( fn1 );        // FF 不能对下面的函数进行预解析<br>  if( true ){</p>
 <pre><code>var a = 1;
 function fn1(){
    alert(123);
@@ -151,7 +149,7 @@ fn3(a);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/18/JavaScript/" data-id="cipkv6upj0000hgbrwsyuu6yg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/18/JavaScript/" data-id="cipkvzg3e0000rwbr6k7j5cre" class="article-share-link">Share</a>
       
       
     </footer>
