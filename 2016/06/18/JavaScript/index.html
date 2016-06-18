@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 初级的一点点总结 | Echoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近有关于JavaScript看后的一点心得体会
+自定义属性，索引值的使用
+JavaScript的基本的数据类型
+作用域问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 初级的一点点总结">
+<meta property="og:url" content="http://yoursite.com/2016/06/18/JavaScript/index.html">
+<meta property="og:site_name" content="Echoting">
+<meta property="og:description" content="最近有关于JavaScript看后的一点心得体会
+自定义属性，索引值的使用
+JavaScript的基本的数据类型
+作用域问题">
+<meta property="og:updated_time" content="2016-06-18T07:42:03.799Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 初级的一点点总结">
+<meta name="twitter:description" content="最近有关于JavaScript看后的一点心得体会
+自定义属性，索引值的使用
+JavaScript的基本的数据类型
+作用域问题">
+  
+    <link rel="alternate" href="/atom.xml" title="Echoting" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Echoting</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习路上的脚印</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/18/JavaScript/" class="article-date">
+  <time datetime="2016-06-18T07:07:10.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript 初级的一点点总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最近有关于JavaScript看后的一点心得体会"><a href="#最近有关于JavaScript看后的一点心得体会" class="headerlink" title="最近有关于JavaScript看后的一点心得体会"></a>最近有关于JavaScript看后的一点心得体会</h1><ul>
+<li>自定义属性，索引值的使用</li>
+<li>JavaScript的基本的数据类型</li>
+<li><p>作用域问题</p>
+<a id="more"></a>
+<h3 id="索引值的使用"><a href="#索引值的使用" class="headerlink" title="索引值的使用"></a>索引值的使用</h3><p>1）<strong>自定义属性：JS 可以为任何HTML元素添加任意个自定义属性</strong> </p>
+<p>  aBtn[0].abc = 123;            // 自定义属性<br>注：不能对背景进行判断，颜色不能判断，and相对路径不能判断<br>2）<strong>自定义属性：索引值得使用</strong><br>想建立“匹配”“对应”关系，就用索引值</p>
+<p>  var arr = [ ‘莫涛’, ‘张森’, ‘杜鹏’ ];<br>  for( var i=0; i&lt;aBtn.length; i++ ){    </p>
+<pre><code>aBtn[i].index = i;            // 自定义属性（索引值）    
+aBtn[i].onclick = function (){
+    // alert( arr[ this.index ] );
+    this.value = arr[ this.index ];        
+    aP[ this.index ].innerHTML = arr[ this.index ];
+};
+</code></pre><p>  }</p>
+</li>
+</ul>
+<h3 id="基本的数据类型及typeof"><a href="#基本的数据类型及typeof" class="headerlink" title="基本的数据类型及typeof"></a>基本的数据类型及typeof</h3><p>1）<strong>基本的数据类型</strong><br>ECMAScript：标准、核心<br>HTML 标签类型：block、inline、inline-block、table……<br>JS中的数据类型：数字、字符串、布尔、函数、对象(obj、[]、{}、null)、未定义<br>2）<strong>typeof</strong> 判断数据类型（string number object function undefined）<br>3）<strong>isNaN</strong>： Is not a number 是不是不是一个数字（不是数字）<br>isNaN(a):就是对a进行Number(a)操作，如果返回值为NaN，则返回1，否则为0.  </p>
+<h3 id="作用域的问题"><a href="#作用域的问题" class="headerlink" title="作用域的问题"></a>作用域的问题</h3><p>变量分为局部变量和全局变量，分别有不同的作用域范围。  </p>
+<h4 id="JS解析器："><a href="#JS解析器：" class="headerlink" title="JS解析器："></a>JS解析器：</h4><p><strong>1）找一些东西：var function 参数  【预解析的过程】</strong><br>   a = …<br>   所有的变量，在正式运行代码之前，都提前赋了一个值：未定义<br>   fn1 = function fn1(){ alert(2); }<br>   所有的函数，在正式运行代码之前，都是整个函数块<br>注：遇到重命名的，只留一个，如果是变量和函数重命名了，就只留下函数。<br>注意：火狐不能对如下函数进行预解析，会报错，尽量避免这种写法  </p>
+<pre><code>alert( fn1 );        // FF 不能对下面的函数进行预解析
+if( true ){
+    var a = 1;
+    function fn1(){
+       alert(123);
+    }
+}
+</code></pre><p><strong>2）逐行解读代码</strong><br>表达式：= + - * / % ++ – ! 参数……<br>表达式可以修改预解析的值！</p>
+<pre><code>alert(a);                    // function a (){ alert(4); }
+var a = 1;
+alert(a);                    // 1
+function a (){ alert(2); }
+alert(a);                    // 1
+var a = 3;        
+alert(a);                    // 3
+function a (){ alert(4); }
+alert(a);                    // 3  
+</code></pre><h4 id="想要获取函数内的值"><a href="#想要获取函数内的值" class="headerlink" title="想要获取函数内的值"></a>想要获取函数内的值</h4><p>方法1. 讲函数内的值赋值给一个全局变量  </p>
+<pre><code>var str = &apos;&apos;;
+function fn1(){
+    var a = &apos;大鸡腿~&apos;;
+    str = a;
+}
+fn1();  
+</code></pre><p>方法2： 在函数内再调用一个函数，将里面的值“偷”出来  </p>
+<pre><code>function fn2(){
+    var a = &apos;9999999克拉钻石23456789&apos;;
+    fn3(a);
+}
+fn2();
+
+function fn3(a){
+    alert(a);
+}
+</code></pre><p>方法3：注意一个小问题，如下</p>
+<pre><code>for( var i=0; i&lt;aBtn.length; i++ ){
+    aBtn[i].onclick = function (){
+
+        // alert( i );            // 3
+
+        for( var i=0; i&lt;aBtn.length; i++ ){
+            aBtn[i].style.background = &apos;yellow&apos;;
+        }
+
+    };
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/18/JavaScript/" data-id="cipkuzuvj0000g4br9hklsz3c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/25/miaowei_website/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MiaoWei_website</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/18/JavaScript/">javascript 初级的一点点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/miaowei_website/">MiaoWei_website</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/20/myfocus/">myfocus</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/15/New Document/">firstBlog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
