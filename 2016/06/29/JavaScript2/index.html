@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 初级的一点点总结 | Echoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近有关于JavaScript看后的一点心得体会（下）
+定时器的使用及一些实例（移动，抖动）
+日期实例，倒计时的方法
+数组及字符串的一些总结（随机选择图片翻页）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 初级的一点点总结">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/JavaScript2/index.html">
+<meta property="og:site_name" content="Echoting">
+<meta property="og:description" content="最近有关于JavaScript看后的一点心得体会（下）
+定时器的使用及一些实例（移动，抖动）
+日期实例，倒计时的方法
+数组及字符串的一些总结（随机选择图片翻页）">
+<meta property="og:updated_time" content="2016-06-29T13:33:10.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 初级的一点点总结">
+<meta name="twitter:description" content="最近有关于JavaScript看后的一点心得体会（下）
+定时器的使用及一些实例（移动，抖动）
+日期实例，倒计时的方法
+数组及字符串的一些总结（随机选择图片翻页）">
+  
+    <link rel="alternate" href="/atom.xml" title="Echoting" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Echoting</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习路上的脚印</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/JavaScript2/" class="article-date">
+  <time datetime="2016-06-29T13:10:25.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript 初级的一点点总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最近有关于JavaScript看后的一点心得体会（下）"><a href="#最近有关于JavaScript看后的一点心得体会（下）" class="headerlink" title="最近有关于JavaScript看后的一点心得体会（下）"></a>最近有关于JavaScript看后的一点心得体会（下）</h1><ul>
+<li>定时器的使用及一些实例（移动，抖动）</li>
+<li>日期实例，倒计时的方法</li>
+<li><p>数组及字符串的一些总结（随机选择图片翻页）</p>
+<a id="more"></a>  
+<h3 id="1-定时器"><a href="#1-定时器" class="headerlink" title="1 定时器"></a>1 定时器</h3><p>1）两种定时器<br>定时器：时间概念</p>
+<pre><code>var timer = setInterval( 函数, 毫秒 );    重复执行（发动机）
+clearInterval( timer );                    清除        
+var timer = setTimeout( 函数, 毫秒 );    执行一次（炸弹）
+clearTimeout( timer );  
+</code></pre><p>2）第一种应用：封装一个doMove函数  </p>
+<p>  function doMove ( obj, attr, dir, target, endFn ) {<br>  //obj: 移动的元素   attr: 方向(top left)  dir:步长  target: 终点</p>
+<pre><code>dir = parseInt(getStyle( obj, attr )) &lt; target ? dir : -dir;    
+clearInterval( obj.timer );
+
+obj.timer = setInterval(function () {        
+    var speed = parseInt(getStyle( obj, attr )) + dir;        
+    if ( speed &gt; target &amp;&amp; dir &gt; 0 ||  speed &lt; target &amp;&amp; dir &lt; 0  ) {
+        speed = target;
+    }    
+    obj.style[attr] = speed + &apos;px&apos;;    
+    if ( speed == target ) {
+        clearInterval( obj.timer );        
+        /*
+        if ( endFn ) {
+            endFn();
+        }
+        */
+        endFn &amp;&amp; endFn();       //回调函数        
+    }        
+}, 30);
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>3）抖函数：原理是，获取元素的初始位置，然后在初始位置的基础上加上【10 -10 8 -8 … 0】  </p>
+<pre><code>function shake(obj,str,pos){
+//obj: 要抖动的对象 str：沿着哪个方向抖动(top left)  pos: 初始位置
+    var num=0;
+    var timer=null;
+    var arr=[],len=20;
+    for(var i=len;i&gt;0;i-=2){
+        arr.push(i,-i);                
+    }                                //产生抖动的数组
+    arr.push(0);
+    clearInterval(timer);
+    timer=setInterval(function(){
+        obj.style[str]=pos+arr[num]+&apos;px&apos;;
+        num++;
+        if(num==len){
+            clearInterval(timer);
+        }
+    },50);        
+}  
+</code></pre><h3 id="2-日期示例，以及倒计时的方法"><a href="#2-日期示例，以及倒计时的方法" class="headerlink" title="2 日期示例，以及倒计时的方法"></a>2 日期示例，以及倒计时的方法</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="ciq0xbd6k0001qgbrs9cd64pc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/18/JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript 初级的一点点总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/29/JavaScript2/">javascript 初级的一点点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/18/JavaScript/">javascript 初级的一点点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/miaowei_website/">MiaoWei_website</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/20/myfocus/">myfocus</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/15/New Document/">firstBlog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
