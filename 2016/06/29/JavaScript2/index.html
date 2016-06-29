@@ -17,7 +17,7 @@
 定时器的使用及一些实例（移动，抖动）
 日期实例，倒计时的方法
 数组及字符串的一些总结（随机选择图片翻页）">
-<meta property="og:updated_time" content="2016-06-29T13:49:20.177Z">
+<meta property="og:updated_time" content="2016-06-29T14:00:24.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 初级的一点点总结">
 <meta name="twitter:description" content="最近有关于JavaScript看后的一点心得体会（下）
@@ -65,9 +65,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -109,8 +109,9 @@ clearInterval( timer );                    清除
 var timer = setTimeout( 函数, 毫秒 );    执行一次（炸弹）
 clearTimeout( timer );  
 </code></pre><p>2）第一种应用：封装一个doMove函数  </p>
-<p>  function doMove ( obj, attr, dir, target, endFn ) {<br>  //obj: 移动的元素   attr: 方向(top left)  dir:步长  target: 终点</p>
-<pre><code>dir = parseInt(getStyle( obj, attr )) &lt; target ? dir : -dir;    
+<p>  function doMove ( obj, attr, dir, target, endFn ){</p>
+<pre><code>//obj: 移动的元素   attr: 方向(top left)  dir:步长  target: 终点
+dir = parseInt(getStyle( obj, attr )) &lt; target ? dir : -dir;    
 clearInterval( obj.timer );        
 obj.timer = setInterval(function () {        
     var speed = parseInt(getStyle( obj, attr )) + dir;        
@@ -125,7 +126,7 @@ obj.timer = setInterval(function () {
             endFn();
         }
         */
-        endFn &amp;&amp; endFn();       //回调函数        
+        endFn &amp;&amp; endFn();       //回调函数
     }        
 }, 30);
 </code></pre><p>  }  </p>
@@ -207,12 +208,70 @@ obj.timer = setInterval(function () {
             },1);            
         }
     },1000);
-}
+}  
+</code></pre><h3 id="3-数组及字符串的总结"><a href="#3-数组及字符串的总结" class="headerlink" title="3 数组及字符串的总结"></a>3 数组及字符串的总结</h3><p>1）字符串方法  </p>
+<pre><code>var str = &apos;妙味课堂-WWW.miaov.com&apos;;
+
+str.charAt(1);            // &apos;味&apos;
+str.charCodeAt(1);            // 21619
+String.fromCharCode(22937, 21619);    // &apos;妙味&apos;
+
+str.indexOf(&apos;m&apos;, 4);            // 9
+str.lastIndexOf(&apos;o&apos;);            // 16
+
+&apos;1000&apos; &lt; &apos;2&apos;            // true
+&apos;1000&apos; &gt; 2            // true
+
+str.substring(0, 4);            // &apos;妙味课堂&apos;
+str.slice(-3);            // &apos;com&apos;
+
+str.toUpperCase();            // &apos;妙味课堂-WWW.MIAOV.COM&apos;
+str.toLowerCase();            // &apos;妙味课堂-www.miaov.com&apos;
+
+str.split(&apos;.&apos;, 2);            // [ &apos;妙味课堂-WWW&apos;, &apos;miaov&apos; ]
+
+var arr = [ &apos;www&apos;, &apos;miaov&apos;, &apos;com&apos; ];
+arr.join(&apos;aaa&apos;);            // &apos;www.miaov.com&apos;  
+</code></pre><p>2）数组方法  </p>
+<pre><code>数组的方法：
+tips：当数组为str=[1,2,3,4,5], 如果直接str.lenght=0,则把数组清空了，json没有长度，string不支持这个方法
+1 push：往后塞  返回值为数组的长度
+2 unshift：往前塞  返回值为数组的长度，IE6，7不支持返回值
+3 arr.pop()：将最后一个扔掉，返回值为被扔掉的值
+4 arr.shift(): 将前面的一个扔掉，返回值为被扔掉的值
+小应用  arr.push(arr.shift()); 将第一个放在最后
+        arr.unshift(arr.pop()); 将最后一个放在最前面
+5 splice: 删除，替换，添加功能
+        删除：arr.splice(0,2) 从第0个开始，删2个
+        替换：arr.splice(0,1,&apos;莫涛&apos;) 将从0开始的1个元素替换为&apos;莫涛&apos;
+        添加：arr.splice(1,0,&apos;echo&apos;) 将&apos;echo&apos;添加到1的位置
+    tips: 返回值为被删除的值，若没有删除的值，则没有返回值
+6 sort排序：以字符串的规则进行排序
+        修复方法：arr.sort(function(a,b){
+                    return a-b;从小到大  扮演的角色
+                  })
+7 随机数的生成：sort+Math.random() 方法
+  0和1：Math.round(Math.random());
+  1-10之间：Math.round(Math.random()*10);
+  5-10之间: Math.round(Math.random()*5+5);
+  x-y之间：Math.round(Math.random()*(y-x)+x);
+  1-x之间：Math.ceil(Math.random()*x);
+8 concat 将2个或者多个数组结合成一个数组
+        arr1.concat(arr2,arr3);
+9 reverse 将数组倒置  1 2 3变成 3 2 1
+10 面试题  将字符串倒置
+    str.split(&apos;&apos;).reverse().join(&apos;&apos;);  
+</code></pre><p>3）一些小tips应用  </p>
+<pre><code>oP.innerHTML=oP.innerHTML.split(str).join(&apos;&lt;span&gt;&apos;+str+&apos;&lt;/span&gt;&apos;);
+给选中的str加上任何样式，样式写在span中
+
+oP.innerHTML = oP.innerHTML.split(str).join(&apos;&lt;span&gt;&apos;+str_new+&apos;&lt;/span&gt;&apos;);
+跟上一个类似，用str_new替换str，如果str_new为空，这个方法就是删除
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="ciq0xv5op0001robr6xj0j5is" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="ciq0y9wid0001o8br6cnc0fjr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -223,7 +282,7 @@ obj.timer = setInterval(function () {
   
   
     <a href="/2016/06/18/JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">javascript 初级的一点点总结</div>
     </a>
   
@@ -256,7 +315,7 @@ obj.timer = setInterval(function () {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -293,7 +352,7 @@ obj.timer = setInterval(function () {
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
