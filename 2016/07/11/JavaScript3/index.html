@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 中级的一点点总结 | Echoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript中级看后的一点心得体会(上)
+DOM事件的属性和相关方法
+BOM事件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 中级的一点点总结">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/JavaScript3/index.html">
+<meta property="og:site_name" content="Echoting">
+<meta property="og:description" content="JavaScript中级看后的一点心得体会(上)
+DOM事件的属性和相关方法
+BOM事件">
+<meta property="og:updated_time" content="2016-07-11T11:44:22.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 中级的一点点总结">
+<meta name="twitter:description" content="JavaScript中级看后的一点心得体会(上)
+DOM事件的属性和相关方法
+BOM事件">
+  
+    <link rel="alternate" href="/atom.xml" title="Echoting" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Echoting</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习路上的脚印</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/11/JavaScript3/" class="article-date">
+  <time datetime="2016-07-11T11:21:12.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript 中级的一点点总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript中级看后的一点心得体会-上"><a href="#JavaScript中级看后的一点心得体会-上" class="headerlink" title="JavaScript中级看后的一点心得体会(上)"></a>JavaScript中级看后的一点心得体会(上)</h1><ul>
+<li>DOM事件的属性和相关方法</li>
+<li><p>BOM事件</p>
+<a id="more"></a>
+<h3 id="DOM事件的相关方法及属性"><a href="#DOM事件的相关方法及属性" class="headerlink" title="DOM事件的相关方法及属性"></a>DOM事件的相关方法及属性</h3><h4 id="DOM定义"><a href="#DOM定义" class="headerlink" title="DOM定义"></a>DOM定义</h4><p>DOM : Document Object Model 文档对象模型<br>DOM会把文档看作是一棵树，同时定义了很多方法来操作这棵数中的每一个元素（节点）</p>
+<h4 id="DOM相关方法及属性"><a href="#DOM相关方法及属性" class="headerlink" title="DOM相关方法及属性"></a>DOM相关方法及属性</h4><p>(1).firstChild:  </p>
+<p>  标准下：firstChild会包含文本类型的节点<br>  非标准下：firstChild 只包含元素节点<br>  firstElementChild: 标准IE下的第一个元素节点，非标准下没有这个属性  </p>
+</li>
+</ul>
+<p>(2) 子节点和兄弟节点  </p>
+<pre><code>元素.firstElementChild || 元素.firstChild 第一个子节点  
+元素.lastChild || 元素.lastElementChild 最后一个子节点  
+元素.nextSibling || 元素.nextElementSibling 下一个兄弟节点  
+元素.previousSibling || 元素.previousElementSibling 上一个兄弟节点  
+都有一个问题：如果为空，则会是firstChild是一个文本元素，并不是我们想要的属性节点。  
+解决方法1：第一个子节点可以用   元素.children[0]  
+</code></pre><p>(3)父节点 </p>
+<pre><code>元素.parentNode : 只读 属性 当前节点的父级节点  
+元素.offsetParent: 只读 属性 离当前元素最近的一个有定位属性的父节点  
+如果没有定位父级，默认的是body  
+ie7以下，如果当前元素没有定位，则默认是body，如果当前元素有定位，则默认是html  
+ie7以下，如果当前元素的某个父级触发了layout，那么offsetParent就会指向触发了
+        layout特性的父节点上。  
+</code></pre><p>(4)offsetLeft[top] </p>
+<pre><code>offsetLeft[top]: 只读 属性当前元素到定位父级的距离（偏移值），
+也可以说：到当前元素的offsetParent的距离.  
+</code></pre><p>如果没有定位父级 </p>
+<pre><code>offsetParent -&gt; body  
+offsetLeft -&gt; html  
+</code></pre><p>如果有定位父级</p>
+<pre><code>ie7以下：如果自己没有定位，那么offsetLeft[Top]是到body的距离  
+    如果自己有定位，那么就是到定位父级的距离  
+其他：到定位父级的距离  
+</code></pre><p>(5).width height </p>
+<pre><code>style.width : 样式宽      //100   
+clientWidth : 可视区宽    //样式宽 + padding
+offsetWidth : 占位宽      //样式宽 + padding + border  
+</code></pre><p>(6)获取元素的绝对位置：  </p>
+<pre><code>function getPos(obj) {
+    var pos = {left:0, top:0};  
+    while (obj) {
+        pos.left += obj.offsetLeft;
+        pos.top += obj.offsetTop;
+        obj = obj.offsetParent;
+    }  
+    return pos;   
+}  
+</code></pre><p>(7)操作元素的属性：</p>
+<pre><code>元素.getAttribute(属性名称); 方法 获取指定元素的指定属性的值
+元素.setAttribute(属性名称，属性值); 方法 给指定元素指定的属性设置值
+元素.removeAttribute(属性名称); 方法 移除指定的元素的指定的属性  
+</code></pre><p>(8)元素的创建:</p>
+<pre><code>document.createElement(标签名称); 创建元素
+父级.appendChild(要添加的元素) 方法 追加子元素
+父级.removeChild(要删除的元素); 删除元素
+父级.insertBefore(新的元素，被插入的元素) 方法 在指定元素前面插入一个新元素
+    在ie下如果第二个参数的节点不存在，会报错
+    在其他标准浏览器下如果第二个参数的节点不存在，则会以appendChild的形式进行添加
+    (解决方法：用一个if语句判断，如果第一个为空，则用appendChild()添加元素)
+父级.replaceChild(新节点，被替换节点) 替换子节点
+</code></pre><p>appendChild insertBeforere placeChild 都可以操作动态创建出来的节点,也可以操作节点  </p>
+<h3 id="BOM事件"><a href="#BOM事件" class="headerlink" title="BOM事件"></a>BOM事件</h3><p>Browser Object Model 浏览器对象模型<br>(1) open(地址默认是空白页面，打开方式默认新窗口) 打开一个新窗口  </p>
+<pre><code>opener = window.open(&apos;http://www.baidu.com&apos;, &apos;_self&apos;);
+</code></pre><p>(2) window.close();  ff : 无法关闭  chrome : 直接关闭  ie : 询问用户<br>(3) opener.close();  //可以关闭在本窗口中通过js打开的新窗口<br>(4) window.navigator.userAgent : 浏览器信息<br>(5) window.location : 地址  </p>
+<pre><code>window.location.href = window.location内容
+window.location.search = url?后面的内容
+window.location.hash = url#后面的内容
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript3/" data-id="ciqhypxll0002vwbr7vs51z3o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/29/JavaScript2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript 初级的一点点总结（下）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/11/JavaScript3/">javascript 中级的一点点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/29/JavaScript2/">javascript 初级的一点点总结（下）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/18/JavaScript/">javascript 初级的一点点总结（上）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/miaowei_website/">MiaoWei_website</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/20/myfocus/">myfocus</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
