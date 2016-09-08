@@ -17,7 +17,7 @@
 定时器的使用及一些实例（移动，抖动）
 日期实例，倒计时的方法
 数组及字符串的一些总结（随机选择图片翻页）">
-<meta property="og:updated_time" content="2016-09-08T13:06:48.596Z">
+<meta property="og:updated_time" content="2016-09-08T13:10:44.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 初级的一点点总结（下）">
 <meta name="twitter:description" content="最近有关于JavaScript看后的一点心得体会（下）
@@ -101,37 +101,38 @@
         <h1 id="最近有关于JavaScript看后的一点心得体会（下）"><a href="#最近有关于JavaScript看后的一点心得体会（下）" class="headerlink" title="最近有关于JavaScript看后的一点心得体会（下）"></a>最近有关于JavaScript看后的一点心得体会（下）</h1><ul>
 <li>定时器的使用及一些实例（移动，抖动）</li>
 <li>日期实例，倒计时的方法</li>
-<li>数组及字符串的一些总结（随机选择图片翻页）</li>
-</ul>
- <a id="more"></a>  
+<li><p>数组及字符串的一些总结（随机选择图片翻页）</p>
+<a id="more"></a>  
 <h3 id="1-定时器"><a href="#1-定时器" class="headerlink" title="1 定时器"></a>1 定时器</h3><p>1）两种定时器<br>定时器：时间概念</p>
 <pre><code>var timer = setInterval( 函数, 毫秒 );    重复执行（发动机）
 clearInterval( timer );                    清除        
 var timer = setTimeout( 函数, 毫秒 );    执行一次（炸弹）
 clearTimeout( timer );  
 </code></pre><p>2）第一种应用：封装一个doMove函数  </p>
-<pre><code>function doMove ( obj, attr, dir, target, endFn){
-    //obj: 移动的元素   attr: 方向(top left)  dir:步长  target: 终点
-    dir = parseInt(getStyle( obj, attr )) &lt; target ? dir : -dir;    
-    clearInterval( obj.timer );        
-    obj.timer = setInterval(function () {        
-        var speed = parseInt(getStyle( obj, attr )) + dir;        
-        if ( speed &gt; target &amp;&amp; dir &gt; 0 ||  speed &lt; target &amp;&amp; dir &lt; 0  ) {
-            speed = target;
-        }    
-        obj.style[attr] = speed + &apos;px&apos;;    
-        if ( speed == target ) {
-            clearInterval( obj.timer );        
-            /*
-            if ( endFn ) {
-                endFn();
-            }
-            */
-            endFn &amp;&amp; endFn();       //回调函数
-        }        
-    }, 30);
-}
-</code></pre><p>3）抖函数：原理是，获取元素的初始位置，然后在初始位置的基础上加上【10 -10 8 -8 … 0】  </p>
+<p>  function doMove ( obj, attr, dir, target, endFn){</p>
+<pre><code>//obj: 移动的元素   attr: 方向(top left)  dir:步长  target: 终点
+dir = parseInt(getStyle( obj, attr )) &lt; target ? dir : -dir;    
+clearInterval( obj.timer );        
+obj.timer = setInterval(function () {        
+    var speed = parseInt(getStyle( obj, attr )) + dir;        
+    if ( speed &gt; target &amp;&amp; dir &gt; 0 ||  speed &lt; target &amp;&amp; dir &lt; 0  ) {
+        speed = target;
+    }    
+    obj.style[attr] = speed + &apos;px&apos;;    
+    if ( speed == target ) {
+        clearInterval( obj.timer );        
+        /*
+        if ( endFn ) {
+            endFn();
+        }
+        */
+        endFn &amp;&amp; endFn();       //回调函数
+    }        
+}, 30);
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>3）抖函数：原理是，获取元素的初始位置，然后在初始位置的基础上加上【10 -10 8 -8 … 0】  </p>
 <pre><code>function shake(obj,str,pos){
 //obj: 要抖动的对象 str：沿着哪个方向抖动(top left)  pos: 初始位置
     var num=0;
@@ -270,7 +271,7 @@ oP.innerHTML = oP.innerHTML.split(str).join(&apos;&lt;span&gt;&apos;+str_new+&ap
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="cisucopll0001t8brnhlx653p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="cisucua020001y4br926x0g5g" class="article-share-link">Share</a>
       
       
     </footer>
