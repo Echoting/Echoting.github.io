@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>各种效果的轮播图 | Echoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="三种常见的轮播图特效
+滑动的轮播图
+透明度变化的轮播图
+层叠样式的轮播图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种效果的轮播图">
+<meta property="og:url" content="http://yoursite.com/2016/09/08/picture_change/index.html">
+<meta property="og:site_name" content="Echoting">
+<meta property="og:description" content="三种常见的轮播图特效
+滑动的轮播图
+透明度变化的轮播图
+层叠样式的轮播图">
+<meta property="og:updated_time" content="2016-09-08T13:06:13.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各种效果的轮播图">
+<meta name="twitter:description" content="三种常见的轮播图特效
+滑动的轮播图
+透明度变化的轮播图
+层叠样式的轮播图">
+  
+    <link rel="alternate" href="/atom.xml" title="Echoting" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Echoting</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">学习路上的脚印</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-picture_change" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/08/picture_change/" class="article-date">
+  <time datetime="2016-09-08T12:13:12.000Z" itemprop="datePublished">2016-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      各种效果的轮播图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="三种常见的轮播图特效"><a href="#三种常见的轮播图特效" class="headerlink" title="三种常见的轮播图特效"></a>三种常见的轮播图特效</h1><ol>
+<li>滑动的轮播图</li>
+<li>透明度变化的轮播图</li>
+<li>层叠样式的轮播图<a id="more"></a>
+###　滑动的轮播图<br>特效展示： <a href="https://echoting.github.io/move_pic/" target="_blank" rel="external">滑动效果</a>　　</li>
+</ol>
+<p>主要思路：　　</p>
+<ul>
+<li>还是利用一个小的可视区域包住一个大的列表。　　</li>
+<li>然后让那个大的列表的间距为负值，慢慢划出可视区域。</li>
+<li>最后将列表第一个加入到列表尾部，并将间距设为０</li>
+<li><p>优点：不用像以前的利用绝对定位改变ｔｏｐ值或者ｌｅｆｔ值来实现滑动特效，也不用判断高度或者宽度。</p>
+<pre><code>setInterval(function(){
+    var aLi=$(&apos;#pic_list li&apos;);
+    $(&apos;#pic_list&apos;).animate({ marginLeft: -202},800,function(){
+        aLi.eq(0).appendTo(&apos;#pic_list&apos;);
+        $(&apos;#pic_list&apos;).css(&apos;marginLeft&apos;,&apos;0&apos;);
+    });
+},1800);
+
+&lt;div class=&quot;wrap&quot;&gt;
+    &lt;ul id=&quot;pic_list&quot;&gt;
+        &lt;li&gt;&lt;img src=&quot;img/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/4.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/5.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/6.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src=&quot;img/7.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;　　
+</code></pre></li>
+</ul>
+<p>###　透明度改变的轮播图<br>效果展示：<a href="https://echoting.github.io/move_pic/" target="_blank" rel="external">渐入渐出效果</a>　　</p>
+<p>主要思路：　　</p>
+<ul>
+<li>将需要展示特效的图片利用定位层叠在一起</li>
+<li>然后将当前的图片的定位层级设为最高，透明度慢慢变为０，这样，下层图片也会慢慢显现出来</li>
+<li>让透明度变为０的图像的透明度变为１，同时将定位层级设为最低。</li>
+<li>重复操作　</li>
+<li><p>优点：　直接用ｆａｄｅＩｎ图片的特效是先慢慢变黑然后再慢慢显示另一张</p>
+<pre><code>setInterval(function(){
+    fade(aImg.eq(i));
+
+    i--;
+    aImg.eq(i).css(&apos;opacity&apos;,&apos;1&apos;);
+    aImg.eq(i).css(&apos;z-index&apos;,i);
+    if(i&lt;0){
+        i=2;
+    }
+
+},2000);
+
+function fade(obj){
+    obj.css(&apos;z-index&apos;,&apos;100&apos;);
+    obj.animate({ opacity: 0 },2000);
+}
+
+&lt;ul class=&quot;opa&quot;&gt;
+    &lt;li class=&quot;img&quot;&gt;&lt;img src=&quot;img/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;img&quot;&gt;&lt;img src=&quot;img/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;img&quot;&gt;&lt;img src=&quot;img/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></li>
+</ul>
+<p>###　层叠样式的轮播图<br>特效展示：　<a href="https://echoting.github.io/hanDongXue/" target="_blank" rel="external">层叠轮播样式</a></p>
+<p>主要思路：</p>
+<ul>
+<li>首先将图片按照静态样式定位好</li>
+<li>每一个图片都有自己的宽高和定位的ｔｏｐ，ｌｅｆｔ，透明度，定位层级等等</li>
+<li>当动画进行时，将每一个图片的样式设置保存为一个数组，然后切换数组</li>
+<li>再将切换完成的数组内的样式重新设置到图片上</li>
+<li>切换数组也就是将第一个放到最后一个，或者最后一个挪到第一个的位置</li>
+<li><p>创新思路：　将样式设置保存到数组中，通过切换数组来切换图片。</p>
+<pre><code>for(var i=0;i&lt;aLi.length;i++){
+    arr.push([ parseInt(getStyle(aLi[i],&apos;left&apos;)), parseInt(getStyle(aLi[i],&apos;top&apos;)), getStyle(aLi[i],&apos;z-index&apos;), getStyle(aLi[i],&apos;opacity&apos;)*100, aImg[i].width, aImg[i].height]);
+}
+
+prev.onclick=function(){
+    arr.unshift(arr[arr.length-1]);
+    arr.pop();
+    // console.log(arr[0]);
+    for(var i=0;i&lt;aLi.length;i++){
+        aLi[i].style.zIndex=arr[i][2];
+
+        startMove(aLi[i],{left : arr[i][0] , top : arr[i][1] , opacity : arr[i][3]});
+        startMove(aImg[i],{ width : arr[i][4] , height : arr[i][5]});
+    }
+}
+next.onclick=function(){
+    // console.log(arr);
+    arr.push(arr[0]);
+    arr.shift();
+    for(var i=0;i&lt;aLi.length;i++){
+        var oImg=aLi[i].getElementsByTagName(&apos;img&apos;)[0];
+        aLi[i].style.zIndex=arr[i][2];
+
+        startMove(aLi[i],{left : arr[i][0] , top : arr[i][1] , opacity : arr[i][3]});
+        startMove(oImg,{ width : arr[i][4] , height : arr[i][5]});
+    }
+}
+</code></pre></li>
+</ul>
+<p>写在最后的话：所有的ｇｉｔｈｕｂ上面的图片打开，加载都是很慢的，特别是图片，问题更大，以后要进一步的学习优化的问题，这里主要学习的是思路。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/08/picture_change/" data-id="cisucoplv0007t8brf7etkiuy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/16/JavaScript4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript 中级的一点点总结（下）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/08/picture_change/">各种效果的轮播图</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript4/">javascript 中级的一点点总结（下）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/11/JavaScript3/">javascript 中级的一点点总结（上）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/29/JavaScript2/">javascript 初级的一点点总结（下）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/18/JavaScript/">javascript 初级的一点点总结（上）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
