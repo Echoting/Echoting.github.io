@@ -90,42 +90,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="git命令稍作整理"><a href="#git命令稍作整理" class="headerlink" title="git命令稍作整理"></a>git命令稍作整理</h1><h2 id="初始化git仓库："><a href="#初始化git仓库：" class="headerlink" title="初始化git仓库："></a>初始化git仓库：</h2><pre><code>进入到该目录下，使用命令 git init 会产生一个.git文件夹
-</code></pre><h2 id="添加文件到git仓库"><a href="#添加文件到git仓库" class="headerlink" title="添加文件到git仓库"></a>添加文件到git仓库</h2><pre><code>使用命令 git add &lt;file&gt;添加文件
-使用命令 git commit -m &quot;说明文字&quot; 提交文件
-git status 查看状态
-</code></pre><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><pre><code>git log 显示从最近到最远的提交日志
-git reset --hard HEAD~1 回到上一个版本,
-    HEAD 表示当前版本，HEAD~2表示回到上上个版本，依次类推
-git reset --hard &lt;ef5e463 版本号&gt;
-    回到后一个版本，这个时候需要版本号
-git reflog 记录我们的每一次命令，其中有版本号
-</code></pre><h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><pre><code>1.若是修改了没有add: 直接 git checkout -- &lt;file&gt; 注意--后面有一个空格
-2.若是修改了也add了：先git reset HEAD &lt;file&gt;从暂存区中撤回
-                    然后 git checkout -- &lt;file&gt; 撤销修改
-3.若是已经commit了，考虑进行版本回退那一步
-</code></pre><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><pre><code>本地删除提交之后的文件之后
-1.若是误删，可以恢复：git checkout -- test.txt
-2.若是想彻底删除： git rm test.txt 
-                    git commit -m &quot;remove test.txt&quot;
-</code></pre><h2 id="关联远程仓库：首先在官网new-responsitory"><a href="#关联远程仓库：首先在官网new-responsitory" class="headerlink" title="关联远程仓库：首先在官网new responsitory"></a>关联远程仓库：首先在官网new responsitory</h2><pre><code>git remote add origin git@server-name:path/repo-name.git
-git push -u origin master第一次推送master分支所有内容
-后面的push只需要git push origin master命令
-github账号：echoting ting1992
-</code></pre><h2 id="从远程克隆"><a href="#从远程克隆" class="headerlink" title="从远程克隆"></a>从远程克隆</h2><pre><code>git clone https://github.com/Echoting/learngit.git
-</code></pre><h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><pre><code>查看分支 git branch
-创建分支 git branch &lt;name&gt;
-切换分支 git checkout &lt;name&gt;
-创建+切换分支 git checkout -b &lt;name&gt;
-合并指定分支到当前分支 git merge &lt;name&gt;
-删除分支 git branch -d &lt;name&gt;
-</code></pre><h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><pre><code>合并的时候如果有冲突，就手动修改，然后提交
-git log --graph命令可以看到分支合并图
-</code></pre>
+        <h1 id="git命令稍作整理"><a href="#git命令稍作整理" class="headerlink" title="git命令稍作整理"></a>git命令稍作整理</h1><ul>
+<li>git初始化</li>
+<li>版本回退</li>
+<li>远程仓库</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/06/gitCommand/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/gitCommand/" data-id="cizz0dlhq0003zobrdoa7gs2w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/06/gitCommand/" data-id="cizz0h7no0004fgbryuly9z99" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令/">git命令</a></li></ul>
@@ -171,7 +149,7 @@ git log --graph命令可以看到分支合并图
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/08/picture_change/" data-id="cizz0dli5000azobryinhz3kn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/08/picture_change/" data-id="cizz0h7o20008fgbra9kpls4y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +197,7 @@ git log --graph命令可以看到分支合并图
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript4/" data-id="cizz0dli6000bzobr2ndz5hpl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript4/" data-id="cizz0h7nn0003fgbr5zvccf5t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +241,7 @@ git log --graph命令可以看到分支合并图
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript3/" data-id="cizz0dlhm0001zobrx6i7xamb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript3/" data-id="cizz0h7nj0001fgbr46y66xea" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +285,7 @@ git log --graph命令可以看到分支合并图
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="cizz0dli10007zobryy4ucopu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/JavaScript2/" data-id="cizz0h7nl0002fgbrip9xnfvq" class="article-share-link">Share</a>
       
       
     </footer>
